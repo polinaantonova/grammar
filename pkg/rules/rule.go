@@ -1,7 +1,7 @@
 package rules
 
 import (
-	"github.com/polina/grammar/internal/tree"
+	"github.com/polina/grammar/pkg/tree"
 )
 
 type ParseResult interface {

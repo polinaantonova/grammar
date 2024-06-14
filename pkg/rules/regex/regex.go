@@ -3,8 +3,8 @@ package regex
 import (
 	"regexp"
 
-	"github.com/polina/grammar/internal/rules"
-	"github.com/polina/grammar/internal/tree"
+	"github.com/polina/grammar/pkg/rules"
+	"github.com/polina/grammar/pkg/tree"
 )
 
 type RegEx struct {

@@ -1,7 +1,7 @@
 package check_full
 
 import (
-	"github.com/polina/grammar/internal/rules"
+	"github.com/polina/grammar/pkg/rules"
 )
 
 type CheckFull struct {

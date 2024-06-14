@@ -8,14 +8,14 @@ import (
 	"strings"
 
 	"github.com/gertd/go-pluralize"
-	"github.com/polina/grammar/internal/rules"
-	"github.com/polina/grammar/internal/rules/check_full"
-	"github.com/polina/grammar/internal/rules/dict"
-	"github.com/polina/grammar/internal/rules/or"
-	"github.com/polina/grammar/internal/rules/placeholder"
-	"github.com/polina/grammar/internal/rules/regex"
-	"github.com/polina/grammar/internal/rules/sequence"
-	"github.com/polina/grammar/internal/tree"
+	"github.com/polina/grammar/pkg/rules"
+	"github.com/polina/grammar/pkg/rules/check_full"
+	"github.com/polina/grammar/pkg/rules/dict"
+	"github.com/polina/grammar/pkg/rules/or"
+	"github.com/polina/grammar/pkg/rules/placeholder"
+	"github.com/polina/grammar/pkg/rules/regex"
+	"github.com/polina/grammar/pkg/rules/sequence"
+	"github.com/polina/grammar/pkg/tree"
 )
 
 func main() {
@@ -23,7 +23,7 @@ func main() {
 	vInf := dict.NewDict([]string{"wash"}, "v")
 
 	//nouns читаем из файла
-	file, err := os.Open("internal/enGram/nouns.txt")
+	file, err := os.Open("pkg/enGram/nouns.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
