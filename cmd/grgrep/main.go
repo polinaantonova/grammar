@@ -8,14 +8,15 @@ import (
 	"strings"
 
 	"github.com/gertd/go-pluralize"
-	"github.com/polina/grammar/pkg/rules"
-	"github.com/polina/grammar/pkg/rules/check_full"
-	"github.com/polina/grammar/pkg/rules/dict"
-	"github.com/polina/grammar/pkg/rules/or"
-	"github.com/polina/grammar/pkg/rules/placeholder"
-	"github.com/polina/grammar/pkg/rules/regex"
-	"github.com/polina/grammar/pkg/rules/sequence"
-	"github.com/polina/grammar/pkg/tree"
+
+	"github.com/polina/grammar/pkg/grammar/rules"
+	"github.com/polina/grammar/pkg/grammar/rules/check_full"
+	"github.com/polina/grammar/pkg/grammar/rules/dict"
+	"github.com/polina/grammar/pkg/grammar/rules/or"
+	"github.com/polina/grammar/pkg/grammar/rules/placeholder"
+	"github.com/polina/grammar/pkg/grammar/rules/regex"
+	"github.com/polina/grammar/pkg/grammar/rules/sequence"
+	"github.com/polina/grammar/pkg/grammar/tree"
 )
 
 func main() {

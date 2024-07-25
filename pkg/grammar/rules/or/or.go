@@ -1,7 +1,7 @@
 package or
 
 import (
-	"github.com/polina/grammar/pkg/rules"
+	"github.com/polina/grammar/pkg/grammar/rules"
 )
 
 type Or struct {
