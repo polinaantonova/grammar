@@ -4,8 +4,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/polina/grammar/pkg/rules"
-	"github.com/polina/grammar/pkg/tree"
+	"github.com/polina/grammar/pkg/grammar/rules"
+	"github.com/polina/grammar/pkg/grammar/tree"
 	"github.com/stretchr/testify/require"
 )
 

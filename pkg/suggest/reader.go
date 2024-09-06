@@ -1,20 +1,18 @@
-package main
+package suggest
 
 import (
 	"bufio"
-	"cmp"
 	"compress/gzip"
+	"github.com/polina/grammar/pkg/suggest/prefixTree"
 	"log"
 	"os"
-	"slices"
+	"sort"
 	"strconv"
 	"strings"
-
-	"github.com/polina/grammar/pkg/prefixTree"
 )
 
-func main() {
-	file, err := os.Open("/home/esantonov/data/query_freq.tsv.gz")
+func ReadQueriesFile(filename string) []*prefixTree.QueryStat {
+	file, err := os.Open(filename)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -28,7 +26,7 @@ func main() {
 
 	scanner := bufio.NewScanner(fileGz)
 
-	queries := make([]*prefixTree.Query, 0, 40000000)
+	queries := make([]*prefixTree.QueryStat, 0, 40000000)
 
 	for scanner.Scan() {
 		before, after, _ := strings.Cut(scanner.Text(), "\t")
@@ -42,9 +40,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	slices.SortStableFunc(queries, func(a, b *prefixTree.Query) int {
-		return cmp.Compare(prefixTree.Frequency(b), prefixTree.Frequency(a))
+	sort.SliceStable(queries, func(i, j int) bool {
+		return queries[i].Frequency() > queries[j].Frequency()
 	})
-
-	frequentQueries := queries[:9]
+	return queries
 }

@@ -85,5 +85,4 @@ func main() {
 		fmt.Println(scanner.Text())
 		tree.PrintNode(res.Node(), os.Stdout)
 	}
-
 }

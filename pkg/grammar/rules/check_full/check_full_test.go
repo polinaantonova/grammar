@@ -4,16 +4,16 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/polina/grammar/pkg/rules"
-	"github.com/polina/grammar/pkg/rules/dict"
-	"github.com/polina/grammar/pkg/rules/sequence"
-	"github.com/polina/grammar/pkg/tree"
+	"github.com/polina/grammar/pkg/grammar/rules"
+	"github.com/polina/grammar/pkg/grammar/rules/dict"
+	"github.com/polina/grammar/pkg/grammar/rules/sequence"
+	"github.com/polina/grammar/pkg/grammar/tree"
 	"github.com/stretchr/testify/require"
 )
 
 func TestCheckFull_Match(t *testing.T) {
-	v := dict.NewDict([]string{"washed"})
-	n := dict.NewDict([]string{"window"})
+	v := dict.NewDict([]string{"washed"}, "v")
+	n := dict.NewDict([]string{"window"}, "n")
 	vp := sequence.NewSequence([]rules.Rule{v, n}, "vp")
 	vp = NewCheckFull(vp)
 

@@ -1,7 +1,7 @@
 package placeholder
 
 import (
-	"github.com/polina/grammar/pkg/rules"
+	"github.com/polina/grammar/pkg/grammar/rules"
 )
 
 type Placeholder struct {

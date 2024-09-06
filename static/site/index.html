@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Suggest</title>
+    <script type="text/javascript">
+        function Suggest() {
+            let req = new XMLHttpRequest();
+            let url = document.location.href;
+            if (url.endsWith('/')) {
+                url = url.substring(0, url.length - 1);
+            }
+            let value = document.getElementById('queryInput').value;
+            req.open('POST', url + "/suggest", true);
+            req.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+
+            req.onreadystatechange = function () {
+                if (req.readyState === 4 && req.status === 200) {
+                    let response = JSON.parse(req.responseText);
+                    const payload = document.getElementById("payload");
+                    while (payload.firstChild) {
+                        payload.removeChild(payload.lastChild);
+                    }
+
+                    response.queries.forEach(function (x){
+                        let child = document.createElement('div');
+                        child.innerText = x.text;
+                        payload.appendChild(child);
+                    })
+                 } else if (req.readyState === 4) {
+                     console.error('fail');
+                 }
+             };
+            req.send(JSON.stringify({"value": value}));
+            //найти input и найти что там написано
+        }
+
+        window.addEventListener('DOMContentLoaded', function (){
+            let inputElement = document.getElementById('queryInput');
+            inputElement.addEventListener('keyup', Suggest);
+            //найти инпут и повесить на него ф Suggest
+        });
+    </script>
+</head>
+<body>
+    <h1>What do you want to buy?</h1>
+    <label for="queryInput"></label>
+    <div><input name="queryInput" type="text" id='queryInput'></div>
+    <div id="payload">
+    </div>
+
+</body>
+</html>
